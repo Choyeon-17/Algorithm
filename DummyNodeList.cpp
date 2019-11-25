@@ -25,10 +25,23 @@ public:
 
  bool FirstNode()
  {
-  if (current)
+  if (head->next)
    return true;
 
   return false;
+ }
+
+ void PrintList()
+ {
+  current = head->next;
+
+  while (current)
+  {
+   cout << current->data << " ";
+   current = current->next;
+  }
+
+  cout << endl << endl;
  }
 
  void InsertNode(TYPE NewData)
@@ -84,29 +97,21 @@ public:
    while (current != NULL)
    {
     if (current->data == TargetData && current->next == NULL)
-     before->next = NULL;
-    else if (current->data == TargetData && current->next)
-     before->next = current->next;
-    else
     {
-     before = current;
-     current = current->next;
+     before->next = NULL;
+     return;
     }
+
+    else if (current->data == TargetData && current->next)
+    {
+     before->next = current->next;
+     return;
+    }
+
+    before = current;
+    current = current->next;
    }
   }
- }
-
- void PrintList()
- {
-  current = head->next;
-
-  while (current)
-  {
-   cout << current->data << " ";
-   current = current->next;
-  }
-
-  cout << endl << endl;
  }
 };
 
@@ -116,11 +121,21 @@ int main()
 
  DummyNodeList<int> list;
 
+ cout << "Insert" << endl;
+
  for (int i = 0; i < 10; i++)
+ {
   list.InsertNode(array[i]);
+  list.PrintList();
+ }
 
- list.PrintList();
+ cout << endl << endl;
+
+ cout << "Delete" << endl;
 
  for (int i = 0; i < 10; i++)
+ {
   list.DeleteNode(array[i]);
+  list.PrintList();
+ }
 }
