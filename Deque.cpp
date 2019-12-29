@@ -212,30 +212,30 @@ void Deque::Display()
 
 int main()
 {
-    deque dq;
+    Deque dq;
 
-    dq.insertFront(-1);
-    dq.insertFront(-2);
-    dq.insertFront(-3);
+    dq.InsertFront(-1);
+    dq.InsertFront(-2);
+    dq.InsertFront(-3);
 
-    dq.display();
+    dq.Display();
 
-    dq.insertRear(1);
-    dq.insertRear(2);
-    dq.insertRear(3);
+    dq.InsertRear(1);
+    dq.InsertRear(2);
+    dq.InsertRear(3);
 
-    dq.display();
+    dq.Display();
 
-    cout << "current front: " << dq.getFront()
-         << " current rear: " << dq.getRear() << endl;
+    cout << "current front: " << dq.GetFront()
+         << " current rear: " << dq.GetRear() << endl;
 
-    dq.delFront();
-    dq.delRear();
+    dq.DelFront();
+    dq.DelRear();
 
-    dq.display();
+    dq.Display();
 
-    cout << "current front: " << dq.getFront()
-         << " current rear: " << dq.getRear() << endl;
+    cout << "current front: " << dq.GetFront()
+         << " current rear: " << dq.GetRear() << endl;
 
     return 0;
 }
